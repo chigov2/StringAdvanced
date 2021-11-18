@@ -33,10 +33,14 @@ public class MainActivity extends AppCompatActivity {
           //  Log.i("test",matcher.group(1));
         //}
         Pattern patternAlt = Pattern.compile("<img alt=(.*?)src=");
-        Matcher matcher = patternAlt.matcher(portrait);
-        Pattern patternImg = Pattern.compile("src=\(.*?)\");
-        while (matcher.find()){
-            Log.i("test",matcher.group(1));
+        Pattern patternImg = Pattern.compile("src=\"(.*?)\"");
+        Matcher matcherAlt = patternAlt.matcher(portrait);
+        Matcher matcherImg = patternImg.matcher(portrait2);
+        while (matcherAlt.find()){
+            Log.i("test",matcherAlt.group(1));
+        }
+        while (matcherImg.find()){
+            Log.i("test",matcherImg.group(1));
         }
     }
 }
